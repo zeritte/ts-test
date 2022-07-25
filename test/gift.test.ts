@@ -1,14 +1,6 @@
 import { GIFT_CARDS } from "../src/db";
 import { calculator } from "../src/gift";
 
-// jest.mock("../src/gift", () => ({
-//   ...jest.requireActual("../src/gift"),
-//   findGiftCardDetails: jest.fn(),
-// }));
-// const mockedFindGiftCardDetails = findGiftCardDetails as jest.MockedFunction<
-//   typeof findGiftCardDetails
-// >;
-
 describe("TEST Amazon $30 'New mobile phone package gift card'", () => {
   describe("WHEN Vodafone uses it", () => {
     it("SHOULD cost $72", () => {
