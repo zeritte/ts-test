@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest --runInBand --forceExit --silent --verbose",
+    "test": "jest --runInBand --detectOpenHandles --silent --verbose",
     "test:watch": "jest --runInBand --watchAll"
   },
   "repository": {
