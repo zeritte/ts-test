@@ -1,17 +1,17 @@
 import { GIFT_CARDS } from "../src/db";
-import { calculator } from "../src/gift";
+import { totalCostCalculator } from "../src/gift";
 
 describe("TEST Amazon $30 'New mobile phone package gift card'", () => {
   describe("WHEN Vodafone uses it", () => {
     it("SHOULD cost $72", () => {
-      const result = calculator("Vodafone", "New mobile phone package");
+      const result = totalCostCalculator("Vodafone", "New mobile phone package");
       expect(result).toBe(72);
     });
   });
 
   describe("WHEN WeWork uses it", () => {
     it("SHOULD cost $96", () => {
-      const result = calculator("WeWork", "New mobile phone package");
+      const result = totalCostCalculator("WeWork", "New mobile phone package");
       expect(result).toBe(96);
     });
   });
@@ -20,14 +20,14 @@ describe("TEST Amazon $30 'New mobile phone package gift card'", () => {
 describe("TEST Tesco $100 'Tesco loyalty card'", () => {
   describe("WHEN Vodafone uses it", () => {
     it("SHOULD cost $270", () => {
-      const result = calculator("Vodafone", "Tesco loyalty card");
+      const result = totalCostCalculator("Vodafone", "Tesco loyalty card");
       expect(result).toBe(270);
     });
   });
 
   describe("WHEN WeWork uses it", () => {
     it("SHOULD cost $360", () => {
-      const result = calculator("WeWork", "Tesco loyalty card");
+      const result = totalCostCalculator("WeWork", "Tesco loyalty card");
       expect(result).toBe(360);
     });
   });
@@ -37,7 +37,7 @@ describe("TEST non-existent cases", () => {
   describe("WHEN customer DOES NOT exist", () => {
     it("SHOULD throw an error", () => {
       try {
-        const result = calculator(
+        const result = totalCostCalculator(
           "non-existent customer",
           "New mobile phone package"
         );
@@ -51,7 +51,7 @@ describe("TEST non-existent cases", () => {
   describe("WHEN gift card DOES NOT exist", () => {
     it("SHOULD throw an error", () => {
       try {
-        const result = calculator("Vodafone", "non-existent gift card");
+        const result = totalCostCalculator("Vodafone", "non-existent gift card");
         expect(result).toBeUndefined();
       } catch (e) {
         expect((e as Error).message).toEqual("Gift card can not be found");
@@ -68,7 +68,7 @@ describe("TEST non-existent cases", () => {
 
     it("SHOULD throw an error", () => {
       try {
-        const result = calculator("WeWork", "Brandless gift card");
+        const result = totalCostCalculator("WeWork", "Brandless gift card");
         expect(result).toBeUndefined();
       } catch (e) {
         expect((e as Error).message).toEqual("Brand can not be found");

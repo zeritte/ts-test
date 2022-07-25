@@ -4,7 +4,7 @@ import {
   findGiftCardDetails,
 } from "./utils";
 
-export const calculator = (customerName: string, giftCardName: string) => {
+export const totalCostCalculator = (customerName: string, giftCardName: string) => {
   const consumerCount = findConsumerCount(customerName);
   const giftCardDetails = findGiftCardDetails(giftCardName);
   const brand = findBrandDetails(giftCardDetails.brand);
